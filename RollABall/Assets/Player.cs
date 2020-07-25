@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Text ScoreText;
     public float Speed;
     private Rigidbody RB;
+    public int Score;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Start");
         RB = gameObject.GetComponent<Rigidbody>();
+        ScoreText.text = "Score: " + Score.ToString();
+    }
+
+    public void AddScore(int value)
+    {
+        Score += value;
+        ScoreText.text = "Score: " + Score.ToString();
     }
 
     // Update is called once per frame
